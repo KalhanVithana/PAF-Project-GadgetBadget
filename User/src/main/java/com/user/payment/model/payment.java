@@ -1,6 +1,6 @@
 package com.user.payment.model;
 
-
+//payment class
 public class payment {
 	private int id;
 	private int accountNo;
