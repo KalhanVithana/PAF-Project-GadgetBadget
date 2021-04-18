@@ -10,6 +10,7 @@ public class User {
 	private String name;
 	private String email;
 	private String mobile;
+	private String password;
 	private String token;
 
 	public void setToken(String token) {
@@ -53,19 +54,31 @@ public class User {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", mobile=" + mobile + "]";
-	}
-
+	
 	public String getToken() {
 		return token;
+	}
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public User() {
 
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", mobile=" + mobile + ", password="
+				+ password + "]";
+	}
+	
+	
 
 }
 

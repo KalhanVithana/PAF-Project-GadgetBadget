@@ -21,7 +21,7 @@ public class UserRepository {
 	  
 	 public UserRepository() {
 		 
-		 String url = "jdbc:mysql://localhost:3306/restdb";
+		 String url = "jdbc:mysql://localhost:3306/userdb";
 		 String username = "root";
 		 String password = "";
 		 
@@ -55,6 +55,7 @@ public class UserRepository {
 			 a.setName(rs.getString(2));
 			 a.setEmail(rs.getString(3));
 			 a.setMobile(rs.getString(4));
+			 a.setPassword(rs.getString(5));
 			 
 			 users.add(a);
 		 }
@@ -84,7 +85,7 @@ public class UserRepository {
 			 a.setName(rs.getString(2));
 			 a.setEmail(rs.getString(3));
 			 a.setMobile(rs.getString(4));
-			 
+			 a.setPassword(rs.getString(5));
 			 
 			
 		 }
@@ -102,7 +103,7 @@ public class UserRepository {
 		// TODO Auto-generated method stub
 		
 	 
-		String sql = "insert into user values(?,?,?,?)";
+		String sql = "insert into user values(?,?,?,?,?)";
 		
 		 try {
 			 PreparedStatement st = con.prepareStatement(sql);
@@ -115,6 +116,8 @@ public class UserRepository {
 				 st.setString(2, s1.getName());
 				 st.setString(3, s1.getEmail());
 				 st.setString(4, s1.getMobile());
+				 st.setString(5, s1.getPassword());
+				
 				 
 				 st.executeUpdate();
 			 
@@ -135,7 +138,7 @@ public class UserRepository {
 		// TODO Auto-generated method stub
 		
 	 
-		String sql = "update user set name=?,email =?,mobile=? where id=?";
+		String sql = "update user set name=?,email =?,mobile=?,password=? where id=?";
 		
 		 try {
 			 PreparedStatement st = con.prepareStatement(sql);
@@ -148,7 +151,8 @@ public class UserRepository {
 				 st.setString(1, s1.getName());
 				 st.setString(2, s1.getEmail());
 				 st.setString(3, s1.getMobile());
-				 st.setInt(4,s1.getId());
+				 st.setString(4, s1.getPassword());
+				 st.setInt(5,s1.getId());
 				 
 				 st.executeUpdate();
 			 
