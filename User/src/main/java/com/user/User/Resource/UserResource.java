@@ -100,6 +100,7 @@ public class UserResource {
 	public Response DeleteUser(@PathParam("id")int id,@HeaderParam("Authcode")String token,@HeaderParam("uname")String name) {
 		
 		System.out.println("delete called");
+		System.out.println("sucessfully  deleted");
 		boolean isAuth = tokenSerives.verifyToken(token, name);
 		if(isAuth) {
 			User a = repo.getOneUser(id);
@@ -121,6 +122,7 @@ public class UserResource {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response  secureMethod(User s1) {
 		System.out.println("login sucss");
+		System.out.println("sucessfuly loged");
 		User data =  repo.login(s1);
 		if(data!=null) {
 			String token;
