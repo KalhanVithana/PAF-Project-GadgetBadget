@@ -57,7 +57,7 @@ public class UserResource {
 	public User getuser(@PathParam("id")int id) {
 		
 		
-		System.out.println("get called");
+		System.out.println("get one user called");
 		   return repo.getOneUser(id); 
 		
 	}
@@ -67,7 +67,7 @@ public class UserResource {
 	@Path("regi")
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML}) 
 	public Response RegisterUser(User s1,@HeaderParam("Authcode")String token,@HeaderParam("uname")String name) {
-		System.out.println("not found");
+		System.out.println("insert called");
 		
 		System.out.println(s1);
 		boolean isAuth = tokenSerives.verifyToken(token, name);
@@ -85,7 +85,7 @@ public class UserResource {
 	@Path("update")
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML}) 
 	public User UpdateUser(User s1) {
-		System.out.println("not found");
+		System.out.println("update user called");
 		
 		System.out.println(s1);
 		repo.Update(s1);
