@@ -68,6 +68,33 @@ public class TC_paymentAPI {
 			.log().body();
 	}
 	
+
+	@Test
+	public void test_updatePayment() {
+
+		JSONObject data = new JSONObject();
+		
+		data.put("accountNo", 554698735);
+		data.put("amount", 900000.0);
+		data.put("buyerName", "Wijesekara");
+		data.put("date", "2021-02-03");
+		data.put("description", "Processing...");
+		data.put("id", 6);
+		data.put("type", "Credit");
+
+
+		given()
+			.contentType("application/json")
+			.body(data)
+			
+		.when()
+			.put("http://localhost:8083/User/webapi/payments/payment")
+			
+		.then()
+			.statusCode(200)
+			.log().body();
+	}
+	
 	
 	
 
