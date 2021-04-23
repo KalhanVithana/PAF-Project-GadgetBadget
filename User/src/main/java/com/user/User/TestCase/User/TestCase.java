@@ -2,6 +2,7 @@ package com.user.User.TestCase.User;
 
 import org.testng.annotations.Test;
 
+
 import com.sun.xml.xsom.impl.scd.Iterators.Map;
 
 import org.testng.Assert;
@@ -19,6 +20,7 @@ import static org.hamcrest.Matchers.*;
 import java.util.HashMap;
 
 import org.json.simple.JSONObject;
+
 
 public class TestCase {
 	
@@ -75,11 +77,11 @@ public class TestCase {
 		
 		JSONObject request = new JSONObject();
 		
-		request.put("id", "4");
-		request.put("name", "abcde");
-		request.put("email", "sagak@");
-		request.put("mobile", "vvvcb");
-		request.put("password", "sdgxaxc");
+		request.put("email", "acc");
+		request.put("id", "0");
+		request.put("mobile", "dxv");
+		request.put("name", "acc");
+		request.put("password", "xdvg");
 		
 		System.out.println(request);
 		System.out.println(request.toJSONString());

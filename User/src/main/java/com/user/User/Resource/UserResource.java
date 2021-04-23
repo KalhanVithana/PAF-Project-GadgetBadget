@@ -153,6 +153,15 @@ public class UserResource {
 	}
 	
 	
+	@GET
+	@Path("/Customers")
+	 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public ArrayList<Customer> getallRegisteredCustomer(){
+		
+		
+		return cus.getAllCustomerRegisterd();
+	}
+	
 	
 	 
 }
