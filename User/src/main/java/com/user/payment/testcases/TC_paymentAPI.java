@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 
 public class TC_paymentAPI {
 
-	@Test
+	@Test(priority = 1)
 	public void test_getAllPayments() {
 		
 		given()
@@ -27,7 +27,7 @@ public class TC_paymentAPI {
 	
 	
 	
-	@Test
+	@Test(priority = 2)
 	public void test_getSpecificPayment() {
 		
 		given()
@@ -42,7 +42,7 @@ public class TC_paymentAPI {
 	}
 	
 	
-	@Test
+	@Test(priority = 3)
 	public void test_insertPayment() {
 		
 		JSONObject data = new JSONObject();
@@ -69,7 +69,7 @@ public class TC_paymentAPI {
 	}
 	
 
-	@Test
+	@Test(priority = 4)
 	public void test_updatePayment() {
 
 		JSONObject data = new JSONObject();
@@ -95,7 +95,7 @@ public class TC_paymentAPI {
 			.log().body();
 	}
 	
-	@Test
+	@Test(priority = 5)
 	public void test_deletePayment() {
 		
 		given()
