@@ -163,5 +163,25 @@ public class UserResource {
 	}
 	
 	
+	@GET
+	@Path("cus/{id}")
+	 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Response getuser3(@HeaderParam("Authcode")String token,@HeaderParam("name")String name,@PathParam("id")int id,User s1) {
+		
+		
+		
+		   
+		   boolean isAuth = tokenSerives.verifyToken(token, name);
+			if(isAuth) {
+	
+				cus.CustomerProfile(id);
+				return Response.status(200).entity(cus.CustomerProfile(id)).build();
+				
+			}else {
+				return Response.status(401).entity("Not Aoth").build();
+			}
+		
+	}
+	
 	 
 }
