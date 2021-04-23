@@ -202,5 +202,24 @@ public class UserResource {
 	}
 	
 	
+	@DELETE
+	@Path("de/{id}")
+	public Response DeleteUserPayment(@PathParam("id")int id,@HeaderParam("Authcode")String token,@HeaderParam("uname")String name) {
+		
+		System.out.println("delete called");
+		System.out.println("sucessfully  deleted");
+		boolean isAuth = tokenSerives.verifyToken(token, name);
+		if(isAuth) {
+			Customer a = cus.CustomerProfile(id);
+			if(a.getId()!= 0)
+				cus.Delete(id);
+			return Response.status(200).entity("Success").build();
+		}else {
+			return Response.status(401).entity("Not Aoth").build();
+		}
+		
+	}
+	
+	
 	 
 }
