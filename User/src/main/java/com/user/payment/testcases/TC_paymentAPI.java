@@ -10,8 +10,10 @@ import static org.hamcrest.Matchers.*;
 import org.json.simple.JSONObject;
 
 
+//All payment testcases
 public class TC_paymentAPI {
 
+	//get all payment testcase
 	@Test(priority = 1)
 	public void test_getAllPayments() {
 		
@@ -26,7 +28,7 @@ public class TC_paymentAPI {
 	}
 	
 	
-	
+	//get specific payment testcase
 	@Test(priority = 2)
 	public void test_getSpecificPayment() {
 		
@@ -42,6 +44,7 @@ public class TC_paymentAPI {
 	}
 	
 	
+	//insert payment testcase
 	@Test(priority = 3)
 	public void test_insertPayment() {
 		
@@ -69,6 +72,7 @@ public class TC_paymentAPI {
 	}
 	
 
+	//update payment testcase
 	@Test(priority = 4)
 	public void test_updatePayment() {
 
@@ -95,6 +99,8 @@ public class TC_paymentAPI {
 			.log().body();
 	}
 	
+	
+	//delete payment testcase
 	@Test(priority = 5)
 	public void test_deletePayment() {
 		
