@@ -95,6 +95,19 @@ public class TC_paymentAPI {
 			.log().body();
 	}
 	
+	@Test
+	public void test_deletePayment() {
+		
+		given()
+
+		.when()
+			.delete("http://localhost:8083/User/webapi/payments/payment/6")
+			
+		.then()
+			.statusCode(200)
+			.log().body();
+
+	}
 	
 	
 
