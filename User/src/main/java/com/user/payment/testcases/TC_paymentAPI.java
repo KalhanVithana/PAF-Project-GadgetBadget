@@ -14,7 +14,7 @@ import org.json.simple.JSONObject;
 
 public class TC_paymentAPI {
 
-	@Test
+	@Test(priority = 1)
 	public void test_getAllPayments() {
 		
 		given()
@@ -29,7 +29,7 @@ public class TC_paymentAPI {
 	
 	
 	
-	@Test
+	@Test(priority = 2)
 	public void test_getSpecificPayment() {
 		
 		given()
@@ -44,7 +44,7 @@ public class TC_paymentAPI {
 	}
 	
 	
-	@Test
+	@Test(priority = 3)
 	public void test_insertPayment() {
 		
 		JSONObject data = new JSONObject();
@@ -70,6 +70,46 @@ public class TC_paymentAPI {
 			.log().body();
 	}
 	
+
+	@Test(priority = 4)
+	public void test_updatePayment() {
+
+		JSONObject data = new JSONObject();
+		
+		data.put("accountNo", 554698735);
+		data.put("amount", 900000.0);
+		data.put("buyerName", "Wijesekara");
+		data.put("date", "2021-02-03");
+		data.put("description", "Processing...");
+		data.put("id", 6);
+		data.put("type", "Credit");
+
+
+		given()
+			.contentType("application/json")
+			.body(data)
+			
+		.when()
+			.put("http://localhost:8083/User/webapi/payments/payment")
+			
+		.then()
+			.statusCode(200)
+			.log().body();
+	}
+	
+	@Test(priority = 5)
+	public void test_deletePayment() {
+		
+		given()
+
+		.when()
+			.delete("http://localhost:8083/User/webapi/payments/payment/6")
+			
+		.then()
+			.statusCode(200)
+			.log().body();
+
+	}
 	
 	
 
