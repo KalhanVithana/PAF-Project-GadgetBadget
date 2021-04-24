@@ -20,7 +20,7 @@ public class TC_paymentAPI {
 		given()
 		
 		.when()
-			.get("http://localhost:8083/User/webapi/payments")
+			.get("http://localhost:8085/User/webapi/payments")
 			
 		.then()
 			.statusCode(200)
@@ -35,7 +35,7 @@ public class TC_paymentAPI {
 		given()
 		
 		.when()
-			.get("http://localhost:8083/User/webapi/payments/payment/1")
+			.get("http://localhost:8085/User/webapi/payments/payment/1")
 			
 		.then()
 			.statusCode(200)
@@ -50,6 +50,7 @@ public class TC_paymentAPI {
 		
 		JSONObject data = new JSONObject();
 		
+		//data to be pass
 		data.put("accountNo", 554698735);
 		data.put("amount", 500000.0);
 		data.put("buyerName", "Perera");
@@ -64,7 +65,7 @@ public class TC_paymentAPI {
 			.body(data)
 				
 		.when()
-			.post("http://localhost:8083/User/webapi/payments/payment")
+			.post("http://localhost:8085/User/webapi/payments/payment")
 				
 		.then()
 			.statusCode(200)
@@ -78,6 +79,7 @@ public class TC_paymentAPI {
 
 		JSONObject data = new JSONObject();
 		
+		//data to be pass
 		data.put("accountNo", 554698735);
 		data.put("amount", 900000.0);
 		data.put("buyerName", "Wijesekara");
@@ -92,7 +94,7 @@ public class TC_paymentAPI {
 			.body(data)
 			
 		.when()
-			.put("http://localhost:8083/User/webapi/payments/payment")
+			.put("http://localhost:8085/User/webapi/payments/payment")
 			
 		.then()
 			.statusCode(200)
@@ -107,7 +109,7 @@ public class TC_paymentAPI {
 		given()
 
 		.when()
-			.delete("http://localhost:8083/User/webapi/payments/payment/6")
+			.delete("http://localhost:8085/User/webapi/payments/payment/6")
 			
 		.then()
 			.statusCode(200)
