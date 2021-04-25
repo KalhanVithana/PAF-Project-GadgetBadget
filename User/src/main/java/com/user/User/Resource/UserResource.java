@@ -24,7 +24,7 @@ import com.user.User.model.User;
 import com.user.responsebean.CustomerResponse;
 import com.user.services.JwtTokenSerives;
 
-@Path("acc")
+@Path("account")
 public class UserResource {
 	
 
