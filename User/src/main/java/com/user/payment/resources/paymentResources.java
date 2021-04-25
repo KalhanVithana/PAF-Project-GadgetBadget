@@ -19,6 +19,7 @@ import com.user.payment.repository.paymentRepository;
 
 
 //Resources
+//Endpoints
 @Path("/payments")
 public class paymentResources {
 

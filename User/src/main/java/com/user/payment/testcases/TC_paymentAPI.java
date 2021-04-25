@@ -1,13 +1,15 @@
 package com.user.payment.testcases;
 
 
+<<<<<<< HEAD
+import org.testng.annotations.Test;
+=======
 import org.testng.Assert;
+>>>>>>> branch 'kaveesha' of https://github.com/KalhanVithana/PAF-Project-GadgetBadget.git
 
 
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
-import io.restassured.response.Response;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 import org.json.simple.JSONObject;
 
@@ -22,7 +24,7 @@ public class TC_paymentAPI {
 		given()
 		
 		.when()
-			.get("http://localhost:8083/User/webapi/payments")
+			.get("http://localhost:8085/User/webapi/payments")
 			
 		.then()
 			.statusCode(200)
@@ -37,7 +39,7 @@ public class TC_paymentAPI {
 		given()
 		
 		.when()
-			.get("http://localhost:8083/User/webapi/payments/payment/1")
+			.get("http://localhost:8085/User/webapi/payments/payment/1")
 			
 		.then()
 			.statusCode(200)
@@ -66,7 +68,7 @@ public class TC_paymentAPI {
 			.body(data)
 				
 		.when()
-			.post("http://localhost:8083/User/webapi/payments/payment")
+			.post("http://localhost:8085/User/webapi/payments/payment")
 				
 		.then()
 			.statusCode(200)
@@ -94,7 +96,7 @@ public class TC_paymentAPI {
 			.body(data)
 			
 		.when()
-			.put("http://localhost:8083/User/webapi/payments/payment")
+			.put("http://localhost:8085/User/webapi/payments/payment")
 			
 		.then()
 			.statusCode(200)
@@ -109,7 +111,7 @@ public class TC_paymentAPI {
 		given()
 
 		.when()
-			.delete("http://localhost:8083/User/webapi/payments/payment/6")
+			.delete("http://localhost:8085/User/webapi/payments/payment/6")
 			
 		.then()
 			.statusCode(200)

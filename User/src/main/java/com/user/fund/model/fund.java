@@ -2,6 +2,8 @@ package com.user.fund.model;
 
 public class fund {
 
+	
+	//attributes 
 	private int id;
 	private String name;
 	private String date;
