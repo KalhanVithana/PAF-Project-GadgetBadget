@@ -24,7 +24,7 @@ import com.user.User.model.User;
 import com.user.responsebean.CustomerResponse;
 import com.user.services.JwtTokenSerives;
 
-@Path("acc")
+@Path("account")
 public class UserResource {
 	
 
@@ -87,7 +87,7 @@ public class UserResource {
 	
 	@PUT
 	@Path("update")
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML}) 
+	@Consumes({MediaType.APPLICATION_JSON}) 
 	public User UpdateUser(User s1) {
 		System.out.println("update user called");
 		
@@ -153,7 +153,7 @@ public class UserResource {
 	}
 	
 	
-	@GET
+	/*@GET
 	@Path("/Customers")
 	 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public ArrayList<Customer> getallRegisteredCustomer(){
@@ -219,7 +219,7 @@ public class UserResource {
 		}
 		
 	}
-	
+	*/
 	
 	 
 }
