@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+//import com.user.db.DatabaseConnectionPayment;
 import com.user.payment.model.payment;
 
 public class paymentRepository {
@@ -18,6 +19,8 @@ public class paymentRepository {
 	
 	//Repository connection
 	public paymentRepository() {		
+		
+		//con = DatabaseConnectionPayment.getConnection();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paymentdb", "root", "");

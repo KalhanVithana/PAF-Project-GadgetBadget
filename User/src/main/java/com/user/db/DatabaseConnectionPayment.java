@@ -1,4 +1,4 @@
-package com.user.db;
+/*package com.user.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,4 +23,4 @@ public class DatabaseConnectionPayment {
 		return con;
 	}
 	
-}
+}*/
