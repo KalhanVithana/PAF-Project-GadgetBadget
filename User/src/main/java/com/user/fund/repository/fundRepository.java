@@ -1,6 +1,7 @@
 package com.user.fund.repository;
 
 
+import com.user.db.DatabaseConnectionFund;
 import com.user.fund.model.fund;
 
 import java.sql.Connection;
@@ -19,6 +20,7 @@ List<fund> fund;
 	
 	public fundRepository()
 	{
+		con = DatabaseConnectionFund.getConnection();
 		/*fund = new ArrayList<>();
 		
 		Fund f1 = new Fund();
@@ -39,14 +41,14 @@ List<fund> fund;
 		
 		fund.add(f1);
 		fund.add(f2);*/
-		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/funddb", "root", "");
-		} 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+//		
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/funddb", "root", "");
+//		} 
+//		catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	public List<fund> getFunds() {
@@ -84,18 +86,33 @@ List<fund> fund;
 		  return fund;
 	  }*/
 	  
-	  public fund getFund(int id)
-	  {
-		 
-		 
-		 for(fund f : fund) 
-		 {
-			 if(f.getId()==id)
-				 return f;
-		 }
-		 
-		 return null;
-	  }
+	public fund getFund(int id) {
+		
+		String sql = "select * from fund where id = " + id;
+		
+		fund p = new fund();
+		
+		try {
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			
+			if(rs.next()) {
+				
+				p.setId(rs.getInt(1));
+				p.setName(rs.getString(2));
+				p.setDate(rs.getString(3));
+				p.setDescription(rs.getString(4));
+				p.setAmount(rs.getFloat(5));
+				p.setRecipient_name(rs.getString(6));
+								
+				
+			}
+		} catch (Exception e) { 
+			e.printStackTrace();
+		}
+		
+		return p;
+	}
 
 	/*public void create(Fund f1) {
 		// TODO Auto-generated method stub

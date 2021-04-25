@@ -40,6 +40,14 @@ public class fundResource {
 		System.out.println("get is working");
 		return repo.getFunds();
 	}
+	
+	@GET
+	@Path("fund/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public fund getFund(@PathParam("id") int id) {
+		return repo.getFund(id);
+	}
+
     
     /*@POST //creating resource 
     @Path("fund")

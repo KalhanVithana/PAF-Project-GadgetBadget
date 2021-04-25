@@ -5,9 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseConnection {
+public class DatabaseConnectionFund {
 	
-	private static String url="jdbc:mysql://ourproject.mysql.database.azure.com:3306/userdb?useSSL=true&requireSSL=false";
+	private static String url="jdbc:mysql://ourproject.mysql.database.azure.com:3306/funddb?useSSL=true&requireSSL=false";
 	private static String user = "user@ourproject";
 	private static String password = "password@123";
 	private static Connection con;
