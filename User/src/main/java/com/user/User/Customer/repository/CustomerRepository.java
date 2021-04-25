@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.ws.rs.core.Response;
 
 import com.user.User.Customer.model.Customer;
 import com.user.User.model.User;
+import com.user.db.CustomerDatabaseConnection;
 
 public class CustomerRepository {
 
@@ -20,23 +22,44 @@ public class CustomerRepository {
 	  
 	 public CustomerRepository() {
 		 
-		 String url = "jdbc:mysql://localhost:3306/userdb";
-		 String username = "root";
-		 String password = "";
+		 con = CustomerDatabaseConnection.getConnection();		 
+		 
+	
+		 
+	 }
+	 
+ public ArrayList<Customer> getAllCustomerRegisterd(){
 		 
 		 
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection(url,username,password);
-		
-		
-	}
-		catch(Exception e)	{
+		 ArrayList<Customer> Customer = new  ArrayList<Customer>();
+		 String sql = "select * from customer";
+		 try {
+		 java.sql.Statement st = con.createStatement();
+		 ResultSet rs = st.executeQuery(sql);
+		 while(rs.next()) {
+			 
+			 Customer a = new Customer();
 			
-			System.out.println("Connection Error");
-			e.printStackTrace();
-		}
+			 
+			 
+			 a.setId(rs.getInt(1));
+			 a.setName(rs.getString(2));
+			 a.setEmail(rs.getString(3));
+			 a.setMobile(rs.getString(4));
+			 a.setNic(rs.getString(4));
+			 a.setPassword(rs.getString(5));
+
+			 Customer.add(a);
+		 }
 		 
+		 }
+		 catch(Exception e) {
+			 
+			 System.out.println("get user error");
+			 e.printStackTrace();
+		 }
+		 
+		 return Customer;
 	 }
 	 
 	 
@@ -82,8 +105,9 @@ public class CustomerRepository {
 			 a.setName(rs.getString(2));
 			 a.setEmail(rs.getString(3));
 			 a.setMobile(rs.getString(4));
-			 a.setPassword(rs.getString(5));
-			 a.setNic(rs.getString(6));
+			 a.setNic(rs.getString(5));
+			 a.setPassword(rs.getString(6));
+			
 		
 			 
 			
@@ -117,8 +141,8 @@ public class CustomerRepository {
 					 st.setString(1, s1.getName());
 					 st.setString(2, s1.getEmail());
 					 st.setString(3, s1.getMobile());
-					 st.setString(4, s1.getPassword());
-					 st.setString(5, s1.getNic());
+					 st.setString(4, s1.getNic());
+					 st.setString(5, s1.getPassword());
 					 st.setInt(6,s1.getId());
 					 
 					 st.executeUpdate();
@@ -179,7 +203,7 @@ public class CustomerRepository {
 				 ResultSet resul = st.executeQuery();
 				
 		         if(resul.next()){
-		        	 return new Customer(resul.getNString("name"), resul.getNString("password"));
+		        	 return new Customer(resul.getString("name"), resul.getString("password"));
 		         }
 		         
 			}

@@ -17,6 +17,8 @@ import javax.ws.rs.core.Response;
 
 import com.user.User.Customer.model.Customer;
 import com.user.User.Customer.repository.CustomerRepository;
+import com.user.User.model.User;
+import com.user.db.DatabaseConnection;
 import com.user.services.JwtTokenSerives;
 
 
@@ -29,6 +31,13 @@ public class CustomerResources {
 	
 	
 	
+	@GET
+	 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public ArrayList<Customer> getAllcustomer(){
+		
+		
+		return repo.getAllCustomerRegisterd();
+	}
 	
 	
 	
@@ -98,10 +107,13 @@ public class CustomerResources {
 	}
 	
 	
+	
+	
 	@POST
 	@Path("log")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response  secureMethod(Customer s1) {
+		DatabaseConnection.getConnection();
 		System.out.println("login sucss");
 		System.out.println("sucessfuly loged");
 		Customer data =  repo.login(s1);

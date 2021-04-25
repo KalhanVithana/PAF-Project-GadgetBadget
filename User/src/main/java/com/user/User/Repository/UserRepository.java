@@ -2,6 +2,7 @@ package com.user.User.Repository;
 
 import java.beans.Statement;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import javax.ws.rs.core.Response;
 
 import com.user.User.model.User;
+import com.user.db.DatabaseConnection;
 
 public class UserRepository {
 
@@ -20,24 +22,7 @@ public class UserRepository {
 	
 	  
 	 public UserRepository() {
-		 
-		 String url = "jdbc:mysql://localhost:3306/userdb";
-		 String username = "root";
-		 String password = "";
-		 
-		 
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection(url,username,password);
-		
-		
-	}
-		catch(Exception e)	{
-			
-			System.out.println("Connection Error");
-			e.printStackTrace();
-		}
-		 
+		con = DatabaseConnection.getConnection(); 
 	 }
 	 
 	 public ArrayList<User> getUsers(){
@@ -196,10 +181,10 @@ public class UserRepository {
 	}
 	 
 	
-	public User login(User s1) {
+public User login(User s1) {
 		
 		
-		String sql = "select name,email from user where name = ? AND email =?";
+		String sql = "select name,password from user where name = ? AND password =?";
 		
 		try {
 			
@@ -208,11 +193,11 @@ public class UserRepository {
 			 PreparedStatement st = con.prepareStatement(sql);
 			 
 			 st.setString(1, s1.getName());
-			 st.setString(2, s1.getEmail());
-			 ResultSet resul = st.executeQuery();
+			 st.setString(2, s1.getPassword());
+			 ResultSet result = st.executeQuery();
 			
-	         if(resul.next()){
-	        	 return new User(resul.getNString("name"), resul.getNString("email"));
+	         if(result.next()){
+	        	 return new User(result.getString("name"), result.getString("password"));
 	         }
 	         
 		}
