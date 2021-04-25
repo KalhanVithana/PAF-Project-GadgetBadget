@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+//import com.user.db.DatabaseConnectionPayment;
 import com.user.payment.model.payment;
 
 public class paymentRepository {
@@ -18,6 +19,8 @@ public class paymentRepository {
 	
 	//Repository connection
 	public paymentRepository() {		
+		
+		//con = DatabaseConnectionPayment.getConnection();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paymentdb", "root", "");
@@ -27,6 +30,7 @@ public class paymentRepository {
 		}
 	}
 
+	//get all payments method
 	public List<payment> getPayments() {
 		
 		List<payment> payments = new ArrayList<>();
@@ -55,6 +59,8 @@ public class paymentRepository {
 		return payments;
 	}
 
+	
+	//get specific payment method
 	public payment getPayment(int id) {
 				
 		String sql = "select * from payment where id = " + id;
@@ -84,6 +90,7 @@ public class paymentRepository {
 		return p;
 	}
 
+	//insert payment method
 	public void create(payment p1) {	
 		
 		String sql = "INSERT INTO `payment` VALUES (?,?,?,?,?,?,?)";
@@ -108,6 +115,7 @@ public class paymentRepository {
 		
 	}
 
+	//update payment method
 	public void update(payment p1) {
 		
 		String sql = "update payment set accountNo = ?, amount = ?, type = ?, date = ?, description = ?, buyerName = ? where id = ?";
@@ -132,6 +140,7 @@ public class paymentRepository {
 		
 	}
 
+	//delete payment method
 	public void delete(int id) {
 		
 		String sql = "delete from payment where id = ?";

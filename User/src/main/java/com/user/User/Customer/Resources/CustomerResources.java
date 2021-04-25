@@ -1,6 +1,7 @@
 package com.user.User.Customer.Resources;
 
 import java.security.NoSuchAlgorithmException;
+
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -18,7 +19,6 @@ import javax.ws.rs.core.Response;
 import com.user.User.Customer.model.Customer;
 import com.user.User.Customer.repository.CustomerRepository;
 import com.user.User.model.User;
-import com.user.db.DatabaseConnection;
 import com.user.services.JwtTokenSerives;
 
 
@@ -113,7 +113,7 @@ public class CustomerResources {
 	@Path("log")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response  secureMethod(Customer s1) {
-		DatabaseConnection.getConnection();
+		
 		System.out.println("login sucss");
 		System.out.println("sucessfuly loged");
 		Customer data =  repo.login(s1);

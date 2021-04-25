@@ -1,6 +1,7 @@
 package com.user.User.TestCase.User;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test
+;
 
 
 import com.sun.xml.xsom.impl.scd.Iterators.Map;
@@ -32,7 +33,7 @@ public class TestCase {
 	@Test
 	public void  Test_1() {
 		
-		Response response = RestAssured.get("http://localhost:8082/User/webapi/acc");
+		Response response = RestAssured.get("http://localhost:8081/User/webapi/acc");
 		
 		System.out.println(response.asString());
 		System.out.println(response.getBody().asString());
@@ -49,10 +50,10 @@ public class TestCase {
 	@Test
 	public void Test_2() {
 
-		given().get("http://localhost:8082/User/webapi/acc/a/3").
+		given().get("http://localhost:8081/User/webapi/acc/a/1").
 		then().
 		statusCode(200).
-		body("id", equalTo(3));
+		body("id", equalTo(1));
 		
 		
 	}
@@ -60,7 +61,7 @@ public class TestCase {
 	public void Test_3_Post() {
 		
 		
-		/*HashMap<String, Object> map = new  HashMap<String, Object>();
+		HashMap<String, Object> map = new  HashMap<String, Object>();
 		
 		
 		
@@ -71,31 +72,11 @@ public class TestCase {
 		map.put("mobile", "vvvcb");
 		map.put("password", "sdgxaxc");
 		
-		//System.out.println(map);
-*/
+		System.out.println(map);
+
 		
 		
-		JSONObject request = new JSONObject();
 		
-		request.put("email", "acc");
-		request.put("id", "0");
-		request.put("mobile", "dxv");
-		request.put("name", "acc");
-		request.put("password", "xdvg");
-		
-		System.out.println(request);
-		System.out.println(request.toJSONString());
-		
-		given()
-		.contentType("application/json")
-		.body(request)
-			
-	.when()
-		.post("http://localhost:8082/User/webapi/acc/regi")
-			
-	.then()
-		.statusCode(200)
-		.log().body();
 
 	}
 
@@ -103,9 +84,9 @@ public class TestCase {
 	
 	
 
-/*	@org.junit.Test
- * 
- * 	@org.junit.Test
+
+
+  	@Test
 	public void test_UserCreate() {
 		
 		given()
@@ -143,7 +124,7 @@ public class TestCase {
 	}
 	
 	
-	*/
+	
 	
 	
 	

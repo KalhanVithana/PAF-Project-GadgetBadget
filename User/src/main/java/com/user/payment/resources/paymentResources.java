@@ -19,18 +19,20 @@ import com.user.payment.repository.paymentRepository;
 
 
 //Resources
+//Endpoints
 @Path("/payments")
 public class paymentResources {
 
 	paymentRepository repo = new paymentRepository();
 	
-	
+	//get all payments
 	@GET	
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<payment> getPayments() {
 		return repo.getPayments();
 	}
 	
+	//get specific payment
 	@GET
 	@Path("payment/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -38,6 +40,7 @@ public class paymentResources {
 		return repo.getPayment(id);
 	}
 	
+	//insert payment
 	@POST
 	@Path("payment")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -48,6 +51,7 @@ public class paymentResources {
 		return p1;
 	}
 	
+	//update payment
 	@PUT
 	@Path("payment")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -62,6 +66,7 @@ public class paymentResources {
 		
 	}
 	
+	//delete payment
 	@DELETE
 	@Path("payment/{id}")
 	public payment deletePayment(@PathParam("id") int id) {

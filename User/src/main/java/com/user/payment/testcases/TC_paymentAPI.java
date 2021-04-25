@@ -14,15 +14,17 @@ import static org.hamcrest.Matchers.*;
 import org.json.simple.JSONObject;
 
 
+//All payment testcases
 public class TC_paymentAPI {
 
+	//get all payment testcase
 	@Test(priority = 1)
 	public void test_getAllPayments() {
 		
 		given()
 		
 		.when()
-			.get("http://localhost:8083/User/webapi/payments")
+			.get("http://localhost:8085/User/webapi/payments")
 			
 		.then()
 			.statusCode(200)
@@ -30,14 +32,14 @@ public class TC_paymentAPI {
 	}
 	
 	
-	
+	//get specific payment testcase
 	@Test(priority = 2)
 	public void test_getSpecificPayment() {
 		
 		given()
 		
 		.when()
-			.get("http://localhost:8083/User/webapi/payments/payment/1")
+			.get("http://localhost:8085/User/webapi/payments/payment/1")
 			
 		.then()
 			.statusCode(200)
@@ -46,6 +48,7 @@ public class TC_paymentAPI {
 	}
 	
 	
+	//insert payment testcase
 	@Test(priority = 3)
 	public void test_insertPayment() {
 		
@@ -65,7 +68,7 @@ public class TC_paymentAPI {
 			.body(data)
 				
 		.when()
-			.post("http://localhost:8083/User/webapi/payments/payment")
+			.post("http://localhost:8085/User/webapi/payments/payment")
 				
 		.then()
 			.statusCode(200)
@@ -73,6 +76,7 @@ public class TC_paymentAPI {
 	}
 	
 
+	//update payment testcase
 	@Test(priority = 4)
 	public void test_updatePayment() {
 
@@ -92,20 +96,22 @@ public class TC_paymentAPI {
 			.body(data)
 			
 		.when()
-			.put("http://localhost:8083/User/webapi/payments/payment")
+			.put("http://localhost:8085/User/webapi/payments/payment")
 			
 		.then()
 			.statusCode(200)
 			.log().body();
 	}
 	
+	
+	//delete payment testcase
 	@Test(priority = 5)
 	public void test_deletePayment() {
 		
 		given()
 
 		.when()
-			.delete("http://localhost:8083/User/webapi/payments/payment/6")
+			.delete("http://localhost:8085/User/webapi/payments/payment/6")
 			
 		.then()
 			.statusCode(200)

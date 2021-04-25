@@ -22,6 +22,7 @@ public class productResources {
 	productRepository repo = new productRepository();
 	
 	@GET
+	@Path("product")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<product> getProducts()
 	{
@@ -61,6 +62,7 @@ public class productResources {
 		}
 		else
 		{
+			System.out.println("updated..");
 			repo.update(p1);
 		}
 		return p1;
@@ -74,6 +76,7 @@ public class productResources {
 		
 		if(p.getId()!=0) {
 		repo.delete(id);
+		System.out.println("deleted..");
 		}
 		else {
 			System.out.println("product id not found");

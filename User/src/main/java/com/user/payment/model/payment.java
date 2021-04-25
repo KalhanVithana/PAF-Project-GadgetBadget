@@ -1,6 +1,6 @@
 package com.user.payment.model;
 
-
+//payment model class
 
 public class payment {
 	

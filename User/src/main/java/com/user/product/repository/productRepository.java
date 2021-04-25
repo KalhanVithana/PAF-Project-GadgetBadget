@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
+import com.user.db.DatabaseConnection;
+import com.user.db.DatabaseConnectionProduct;
 import com.user.product.model.product;
 
 public class productRepository {
@@ -17,17 +19,18 @@ public class productRepository {
 	
 	public productRepository()
 	{
-		String url = "jdbc:mysql://localhost:3306/productdb";
-		String username = "root";
-		String password = "";
-		try 
-		{
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection(url,username,password);
-		}
-		catch(Exception e) {
-			System.out.println(e);
-		}
+		con = DatabaseConnectionProduct.getConnection();
+//		String url = "jdbc:mysql://localhost:3306/productdb";
+//		String username = "root";
+//		String password = "";
+//		try 
+//		{
+//			Class.forName("com.mysql.jdbc.Driver");
+//			con = DriverManager.getConnection(url,username,password);
+//		}
+//		catch(Exception e) {
+//			System.out.println(e);
+//		}
 	}
 	
 	public List<product> getProducts()
