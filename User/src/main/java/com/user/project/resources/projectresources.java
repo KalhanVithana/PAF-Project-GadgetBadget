@@ -23,7 +23,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
 
 import com.user.project.model.project;
-@Path("en")
+@Path("project")
 public class projectresources {
 ///gdgeggd
 	
