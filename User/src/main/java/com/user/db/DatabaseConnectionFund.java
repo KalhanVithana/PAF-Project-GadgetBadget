@@ -19,7 +19,8 @@ public class DatabaseConnectionFund {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Connection Success");
+		System.out.println("Connection Successful");
+	  
 		return con;
 	}
 	

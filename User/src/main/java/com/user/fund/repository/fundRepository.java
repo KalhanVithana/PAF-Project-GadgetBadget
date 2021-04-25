@@ -19,27 +19,7 @@ public class fundRepository {
 
 	public fundRepository() {
 		con = DatabaseConnectionFund.getConnection();
-		/*
-		 * fund = new ArrayList<>();
-		 * 
-		 * Fund f1 = new Fund(); f1.setFund_ID(1); f1.setFunder_name("Uvin");
-		 * f1.setDate("2021/02/10"); f1.setDescription("fund for chethana");
-		 * f1.setFund_amount("1000000"); f1.setRecipient_name("shashini");
-		 * 
-		 * Fund f2 = new Fund(); f2.setFund_ID(1); f2.setFunder_name("Kalhan");
-		 * f2.setDate("2021/03/10"); f2.setDescription("fund for sathma");
-		 * f2.setFund_amount("100000"); f2.setRecipient_name("miuranga");
-		 * 
-		 * fund.add(f1); fund.add(f2);
-		 */
-//		
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/funddb", "root", "");
-//		} 
-//		catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		
 	}
 
 	public List<fund> getFunds() {
