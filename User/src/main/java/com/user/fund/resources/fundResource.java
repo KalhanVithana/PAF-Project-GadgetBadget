@@ -40,6 +40,25 @@ public class fundResource {
 		return repo.getFunds();
 	}
 
+	
+		@GET
+		@Path("fund/{id}")
+		@Produces(MediaType.APPLICATION_JSON)
+		public fund getPayment(@PathParam("id") int id) {
+			return repo.getFund(id);
+		}
+    
+    /*@POST //creating resource 
+    @Path("fund")
+    public Fund createFund(Fund f1)
+    {
+    	System.out.println(f1);
+    	repo.create(f1);
+    	return f1;
+    }*/
+	
+
+
 	@GET
 	@Path("fund/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -53,6 +72,7 @@ public class fundResource {
 	 * @Path("fund") public Fund createFund(Fund f1) { System.out.println(f1);
 	 * repo.create(f1); return f1; }
 	 */
+
 
 	@POST
 	@Path("/fund")
