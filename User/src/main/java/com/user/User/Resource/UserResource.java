@@ -24,7 +24,7 @@ import com.user.User.model.User;
 import com.user.responsebean.CustomerResponse;
 import com.user.services.JwtTokenSerives;
 
-@Path("acc")
+@Path("account")
 public class UserResource {
 	
 
@@ -87,7 +87,7 @@ public class UserResource {
 	
 	@PUT
 	@Path("update")
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML}) 
+	@Consumes({MediaType.APPLICATION_JSON}) 
 	public User UpdateUser(User s1) {
 		System.out.println("update user called");
 		
@@ -153,6 +153,73 @@ public class UserResource {
 	}
 	
 	
+	/*@GET
+	@Path("/Customers")
+	 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public ArrayList<Customer> getallRegisteredCustomer(){
+		
+		
+		return cus.getAllCustomerRegisterd();
+	}
+	
+	
+	@GET
+	@Path("cus/{id}")
+	 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Response getuser3(@HeaderParam("Authcode")String token,@HeaderParam("name")String name,@PathParam("id")int id,User s1) {
+		
+		
+		
+		   
+		   boolean isAuth = tokenSerives.verifyToken(token, name);
+			if(isAuth) {
+	
+				cus.CustomerProfile(id);
+				return Response.status(200).entity(cus.CustomerProfile(id)).build();
+				
+			}else {
+				return Response.status(401).entity("Not Aoth").build();
+			}
+		
+	}
+	
+	@DELETE
+	@Path("de/{id}")
+	public Response DeleteUser1(@PathParam("id")int id,@HeaderParam("Authcode")String token,@HeaderParam("uname")String name) {
+		
+		System.out.println("delete called");
+		System.out.println("sucessfully  deleted");
+		boolean isAuth = tokenSerives.verifyToken(token, name);
+		if(isAuth) {
+			Customer a = cus.CustomerProfile(id);
+			if(a.getId()!= 0)
+				cus.Delete(id);
+			return Response.status(200).entity("Success").build();
+		}else {
+			return Response.status(401).entity("Not Aoth").build();
+		}
+		
+	}
+	
+	
+	@DELETE
+	@Path("de/{id}")
+	public Response DeleteUserPayment(@PathParam("id")int id,@HeaderParam("Authcode")String token,@HeaderParam("uname")String name) {
+		
+		System.out.println("delete called");
+		System.out.println("sucessfully  deleted");
+		boolean isAuth = tokenSerives.verifyToken(token, name);
+		if(isAuth) {
+			Customer a = cus.CustomerProfile(id);
+			if(a.getId()!= 0)
+				cus.Delete(id);
+			return Response.status(200).entity("Success").build();
+		}else {
+			return Response.status(401).entity("Not Aoth").build();
+		}
+		
+	}
+	*/
 	
 	 
 }

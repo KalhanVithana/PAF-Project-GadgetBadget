@@ -3,6 +3,7 @@ package com.user.User.Repository;
 import java.beans.Statement;
 
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import javax.ws.rs.core.Response;
 
 import com.user.User.model.User;
-import com.user.db.DatabaseConnection;
+import com.user.db.DatabaseConnectionUser;
 
 public class UserRepository {
 
@@ -22,7 +23,7 @@ public class UserRepository {
 	
 	  
 	 public UserRepository() {
-		con = DatabaseConnection.getConnection(); 
+		con = DatabaseConnectionUser.getConnection(); 
 	 }
 	 
 	 public ArrayList<User> getUsers(){

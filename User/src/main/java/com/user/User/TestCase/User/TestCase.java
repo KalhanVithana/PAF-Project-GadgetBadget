@@ -1,12 +1,92 @@
 package com.user.User.TestCase.User;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import org.testng.annotations.Test
+;
+
+
+import com.sun.xml.xsom.impl.scd.Iterators.Map;
+
+import org.testng.Assert;
+
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
+
+import static io.restassured.RestAssured.*;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import java.util.HashMap;
+
+import org.json.simple.JSONObject;
+
 
 public class TestCase {
 	
 	
-	@org.junit.Test
+
+
+	
+	
+	@Test
+	public void  Test_1() {
+		
+		Response response = RestAssured.get("http://localhost:8081/User/webapi/acc");
+		
+		System.out.println(response.asString());
+		System.out.println(response.getBody().asString());
+		System.out.println(response.getStatusCode());
+		System.out.println(response.getStatusLine());
+		System.out.println(response.getTime());
+		
+		int statusCode = response.getStatusCode();
+		Assert.assertEquals(statusCode, 200);
+		
+		
+	}
+	
+	@Test
+	public void Test_2() {
+
+		given().get("http://localhost:8081/User/webapi/acc/a/1").
+		then().
+		statusCode(200).
+		body("id", equalTo(1));
+		
+		
+	}
+	@Test
+	public void Test_3_Post() {
+		
+		
+		HashMap<String, Object> map = new  HashMap<String, Object>();
+		
+		
+		
+		
+		map.put("id", "1");
+		map.put("name", "abcde");
+		map.put("email", "sagak@");
+		map.put("mobile", "vvvcb");
+		map.put("password", "sdgxaxc");
+		
+		System.out.println(map);
+
+		
+		
+		
+
+	}
+
+	
+	
+	
+
+
+
+  	@Test
 	public void test_UserCreate() {
 		
 		given()
@@ -18,9 +98,6 @@ public class TestCase {
 			.statusCode(200);
 	}
 	
-	
-
-	@org.junit.Test
 	public void test_Users() {
 		
 		given()
@@ -45,6 +122,14 @@ public class TestCase {
 			.log().body()
 			.body("id", equalTo(1));
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 	
