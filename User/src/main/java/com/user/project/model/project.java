@@ -71,8 +71,8 @@ public class project {
 	 "<th>OwnerName</th>" +
 	 "<th>Duration</th>" +
 	 "<th>Email</th>" +
-	 "<th>Description</th>" +
-	 "<th>Update</th><th>Remove</th></tr>";
+	 "<th>Description</th>";
+	 //"<th>Update</th><th>Remove</th></tr>";
 
 	 String query = "select * from project";
 	 java.sql.Statement stmt = con.createStatement();
@@ -94,9 +94,9 @@ public class project {
 	 output += "<td>" + Email + "</td>";
 	 output += "<td>" + Description + "</td>";
 	 // buttons
-	 output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
-	 + "<td><form method='post' action='items.jsp'>" + "<input name='PID' type='hidden' value='" + PID
-	 + "'>" + "</form></td></tr>";
+//	 output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
+//	 + "<td><form method='post' action='items.jsp'>" + "<input name='PID' type='hidden' value='" + PID
+//	 + "'>" + "</form></td></tr>";
 	 }
 	 con.close();
 	 // Complete the html table
