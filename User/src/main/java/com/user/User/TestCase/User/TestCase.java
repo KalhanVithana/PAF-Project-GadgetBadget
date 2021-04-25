@@ -84,9 +84,9 @@ public class TestCase {
 	
 	
 
-/*	@org.junit.Test
- * 
- * 	@org.junit.Test
+
+
+  	@Test
 	public void test_UserCreate() {
 		
 		given()
@@ -98,7 +98,7 @@ public class TestCase {
 			.statusCode(200);
 	}
 	
-	public void test_Users() {
+	/*public void test_Users() {
 		
 		given()
 		
